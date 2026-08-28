@@ -1,0 +1,10 @@
+- name: Deploy to server
+  uses: appleboy/ssh-action@v1
+  with:
+    host: ${{ secrets.SSH_HOST }}
+    username: ${{ secrets.SSH_USER }}
+    key: ${{ secrets.SSH_PRIVATE_KEY }}
+    script: |
+      cd /home/leonardo/yolo-edge-api
+      chmod +x scripts/deploy.sh
+      ./scripts/deploy.sh
